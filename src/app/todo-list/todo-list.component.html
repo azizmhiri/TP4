@@ -1,0 +1,30 @@
+<app-head-bar></app-head-bar>
+<div class="container mt-3">
+    <h2>Liste des tâches</h2>
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let todo of todos"
+      >
+        <span>{{ todo.title }}</span>
+        <div>
+          <button class="btn btn-info btn-sm me-2" (click)="viewTodoDetail(todo)">
+            <i class="fa-solid fa-list"></i>
+
+          </button>
+          <button class="btn btn-warning btn-sm me-2" (click)="selectTodoForUpdate(todo)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteTodo(todo.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <app-update-todo *ngIf="selectedTodo" [todoToUpdate]="selectedTodo"></app-update-todo>
+
+  
+  
+  
